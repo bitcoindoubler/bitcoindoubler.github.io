@@ -6,10 +6,10 @@
 
 /* The following example turns the background to yellow if you uncomment it. */
 
-  div {
+  #countdown {
     color: #1B232F;
     font-family: Verdana, Arial, sans-serif;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: bold;
     text-decoration: none;
 }
