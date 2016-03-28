@@ -1819,7 +1819,12 @@ var FaucetTabContent = React.createClass({
           faucetState: 'SUCCESSFULLY_CLAIMED',
           claimAmount: data.amount
           
-          function countdown( elementName, minutes, seconds )
+        });
+        // self.props.faucetClaimedAt.update(function() {
+        //   return new Date();
+        // });
+        
+        function countdown( elementName, minutes, seconds )
 {
     var element, endTime, hours, mins, msLeft, time;
 
@@ -1848,10 +1853,6 @@ var FaucetTabContent = React.createClass({
 }
 
 countdown( "countdown", 5, 0 );
-        });
-        // self.props.faucetClaimedAt.update(function() {
-        //   return new Date();
-        // });
       },
       
       error: function(xhr, textStatus, errorThrown) {
