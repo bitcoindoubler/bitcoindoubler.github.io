@@ -1818,11 +1818,42 @@ var FaucetTabContent = React.createClass({
         self.setState({
           faucetState: 'SUCCESSFULLY_CLAIMED',
           claimAmount: data.amount
+          
+          function countdown( elementName, minutes, seconds )
+{
+    var element, endTime, hours, mins, msLeft, time;
+
+    function twoDigits( n )
+    {
+        return (n <= 9 ? "0" + n : n);
+    }
+
+    function updateTimer()
+    {
+        msLeft = endTime - (+new Date);
+        if ( msLeft < 1000 ) {
+            element.innerHTML = "You can claim faucet now!";
+        } else {
+            time = new Date( msLeft );
+            hours = time.getUTCHours();
+            mins = time.getUTCMinutes();
+            element.innerHTML = (hours ? hours + ':' + twoDigits( mins ) : mins) + ':' + twoDigits( time.getUTCSeconds() );
+            setTimeout( updateTimer, time.getUTCMilliseconds() + 500 );
+        }
+    }
+
+    element = document.getElementById( elementName );
+    endTime = (+new Date) + 1000 * (60*minutes + seconds) + 500;
+    updateTimer();
+}
+
+countdown( "countdown", 5, 0 );
         });
         // self.props.faucetClaimedAt.update(function() {
         //   return new Date();
         // });
       },
+      
       error: function(xhr, textStatus, errorThrown) {
         if (xhr.responseJSON && xhr.responseJSON.error === 'FAUCET_ALREADY_CLAIMED') {
           self.setState({ faucetState: 'ALREADY_CLAIMED' });
