@@ -928,7 +928,7 @@ var ChatUserList = React.createClass({
         {className: 'panel panel-default'},
         el.div(
           {className: 'panel-heading'},
-          'UserList'
+          'User List'
         ),
         el.div(
           {className: 'panel-body'},
@@ -1501,7 +1501,7 @@ var BetBoxButton = React.createClass({
               },
               'Bet Lo ', worldStore.state.hotkeysEnabled ? el.kbd(null, 'L') : ''
             )
-          )
+          )https://github.com/bitcoindoubler/bitcoindoubler.github.io
         );
     } else {
       // If user isn't logged in, give them link to /oauth/authorize
@@ -1873,13 +1873,13 @@ var FaucetTabContent = React.createClass({
     case 'ALREADY_CLAIMED':
       innerNode = el.div(
         null,
-        'ALREADY_CLAIMED'
+        'ALready claimed'
       );
       break;
     case 'WAITING_FOR_SERVER':
       innerNode = el.div(
         null,
-        'WAITING_FOR_SERVER'
+        'Waiting for server...'
       );
       break;
     default:
